@@ -1,6 +1,8 @@
-export class Validator {
+class Validator {
     validateUsername(username) {
-        const regex = /^(?![0-9])(?!.*[_\-]$)(?!.*[0-9]{4,})[a-zA-Z0-9_\-]+(?<![_\-])$/;
-        return regex.test(username);
+        const usernameRegex = /^(?!.*[-_]{2,})(?!.*\d{4,})[a-zA-Z][a-zA-Z0-9_-]{1,14}[a-zA-Z0-9]$/;
+        return usernameRegex.test(username);
     }
 }
+
+module.exports = { Validator };

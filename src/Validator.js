@@ -1,7 +1,10 @@
 class Validator {
+    constructor() {
+        this.usernamePattern = /^(?!.*[\-_]{2,})(?!.*\d{4,})[a-zA-Z][\w\-]*[a-zA-Z]$/;
+    }
+
     validateUsername(username) {
-        const usernameRegex = /^(?!.*[-_]{2,})(?!.*\d{4,})[a-zA-Z][a-zA-Z0-9_-]{1,14}[a-zA-Z0-9]$/;
-        return usernameRegex.test(username);
+        return this.usernamePattern.test(username);
     }
 }
 

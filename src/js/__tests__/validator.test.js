@@ -1,4 +1,4 @@
-import { Validator } from './src/Validator';
+const { Validator } = require('../../Validator');
 
 describe('Username validation', () => {
     let validator;
@@ -44,6 +44,10 @@ describe('Username validation', () => {
     });
 
     test('should accept username with underscore and dash', () => {
-        expect(validator.validateUsername('John_Doe-')).toBeFalsy();
+        expect(validator.validateUsername('John_and-Doe')).toBeTruthy();
+    });
+
+    test('should reject username with digit at the end', () => {
+        expect(validator.validateUsername('JohnDoe1')).toBeFalsy();
     });
 });
